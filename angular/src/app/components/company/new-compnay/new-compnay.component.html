@@ -1,0 +1,45 @@
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" [type]="spinnerType" [name]="spinnerName" [fullScreen] = "true"><p style="color: white" > Please Wait... </p></ngx-spinner>
+<div class="row">
+    <div class="col-6 mx-auto">
+        <nz-card 
+            [nzBordered]="true" 
+            nzTitle="Add New Company"
+        >
+            <form 
+                nz-form 
+                [formGroup]="form" 
+                nzLayout="vertical"  
+                (ngSubmit)="submitForm()"
+            >
+                <nz-form-item>
+                    <nz-form-label nzRequired nzFor="name">Name</nz-form-label>
+                    <nz-form-control nzErrorTip="Enter Company Name">
+                        <input type="text" nz-input formControlName="name" placeholder="Company Name">
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-label nzRequired nzFor="address">Address</nz-form-label>
+                    <nz-form-control nzErrorTip="Enter Company Address">
+                        <input type="text" nz-input formControlName="address" placeholder="Company Address">
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-label nzRequired nzFor="phone_number">Phone Number</nz-form-label>
+                    <nz-form-control nzErrorTip="Enter Company Phone Number">
+                        <input type="text" nz-input formControlName="phone_number" placeholder="Company Phone Number">
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-control>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <button nz-button [nzType]="'primary'">Add</button>
+                        </div>
+                    </nz-form-control>
+                </nz-form-item>
+            </form>
+        </nz-card>
+    </div>
+</div>

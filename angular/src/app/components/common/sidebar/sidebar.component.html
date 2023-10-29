@@ -1,0 +1,38 @@
+<div sidenav class="side-nav">
+    <div class="sidebar">
+        <ul nz-menu nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+            <li 
+                nz-menu-item 
+                nz-tooltip 
+                nzTooltipPlacement="right" 
+                [nzTooltipTitle]="isCollapsed ? 'Navigation One' : ''" 
+                nzSelected
+                routerLink="/"
+            >
+                <!-- <i nz-icon nzType="mail"></i> -->
+                <span>Dashboard</span>
+            </li>
+
+            <li nz-submenu nzTitle="Company">
+                <ul>
+                    <li nz-menu-item routerLink="company/new">Add New Company</li>
+                    <li nz-menu-item routerLink="company/all">All Companies</li>
+                </ul>
+            </li>
+
+            <li nz-submenu nzTitle="Product">
+                <ul>
+                    <li nz-menu-item routerLink="product/new">Add New Product</li>
+                    <li nz-menu-item routerLink="product/all">All Products</li>
+                </ul>
+            </li>
+
+            <li nz-submenu nzTitle="Sales">
+                <ul>
+                    <li nz-menu-item routerLink="sale/new">New Sale</li>
+                    <li nz-menu-item routerLink="sale/all">All Sales</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

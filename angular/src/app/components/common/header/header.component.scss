@@ -1,0 +1,38 @@
+.header {
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        a {
+            font-size: 20px;
+        }
+    }
+    .logo.logo-white {
+        display: none;
+    }
+}
+.dots-overflow {
+    font-size: 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 21ch;
+    text-overflow: ellipsis;
+}
+span.username-circle {
+    width: 45px;
+    height: 45px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #efefef;
+    font-size: 16px;
+    font-weight: 500;
+}
+.settings-dropdown {
+    top: 20px;
+    width: 260px;
+    .profile-dropdown-avatar {
+
+    }
+}

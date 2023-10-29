@@ -1,0 +1,60 @@
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" [type]="spinnerType" [name]="spinnerName" [fullScreen] = "true"><p style="color: white" > Please Wait... </p></ngx-spinner>
+
+<div class="row">
+    <div class="col-12 mx-auto">
+        <div class="page-header has-tab">
+            <h2 class="font-weight-normal color-darkest">New Sale</h2>
+        </div>
+
+        <nz-tabset>
+            <ng-container *ngFor="let t of product.type; let tIndex=index;">
+                <nz-tab [nzTitle]="t.name">
+                    <nz-tabset>
+                        <ng-container *ngFor="let v of t.variant; let vIndex=index;">
+                            <nz-tab [nzTitle]="v.name">
+                                    <div class="row">
+                                        <ng-container *ngFor="let s of v.size; let sIndex=index;">
+                                            <div class="col-4">
+                                                <nz-card 
+                                                    [nzBordered]="true" 
+                                                    [nzTitle]="v.name+ ' ' +s.name"
+                                                >
+                                                    <div class="flavor-row" *ngFor="let f of s.flavor; let fIndex=index;">
+                                                        <div class="single-flavor">
+                                                            <label 
+                                                                nz-checkbox 
+                                                                [(ngModel)]="f.checked"
+                                                                (ngModelChange)="saveOrderData(tIndex, vIndex, sIndex, fIndex, true)"
+                                                            >{{f.label}}</label>
+                    
+                                                            <nz-input-number
+                                                                class="input-field"
+                                                                [disabled]="!f.checked"
+                                                                [nzMin]="0"
+                                                                [nzStep]="1"
+                                                                [(ngModel)]="f.quantity"
+                                                                (ngModelChange)="saveOrderData(tIndex, vIndex, sIndex, fIndex, false)"
+                                                            ></nz-input-number>
+                                                        </div>
+                                                    </div>
+                                                </nz-card>
+                                            </div>
+                                        </ng-container>
+                                    </div>
+                            </nz-tab>
+                        </ng-container>
+                    </nz-tabset>
+                </nz-tab>
+            </ng-container>
+        </nz-tabset>
+        
+        <div class="d-flex justify-content-end">
+            <button 
+                nz-button 
+                nzType="primary" 
+                [nzLoading]="loading" 
+                (click)="placeOrder()"
+            >Place Order</button>
+        </div>
+    </div>
+</div>

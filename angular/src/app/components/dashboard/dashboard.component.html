@@ -1,0 +1,52 @@
+<div class="common-layout">
+    <app-header></app-header>
+    <app-sidebar></app-sidebar>
+
+    <div class="page-container">
+        <div class="main-content">
+            <div class="page-content">
+                <router-outlet></router-outlet>
+
+                <ng-container *ngIf="homePage">
+                    <div class="row">
+                        <div class="col-6">
+                            <nz-card nzTitle="Overall Sale">
+                                <div class="chart-filter-form" style="top: 12px;">
+                                    <nz-segmented [nzOptions]="segmentOptions" (nzValueChange)="handleIndexChange($event)"></nz-segmented>
+                                </div>
+
+                                <div class="chart-data" style="height: 250px;">
+                                    <chart [type]="type" [data]="data" [options]="options"></chart>
+                                </div>
+                            </nz-card>
+                        </div>
+
+                        <div class="col-6">
+                            <nz-card nzTitle="Company Sale">
+                                <div class="chart-filter-form">
+                                    <nz-segmented [nzOptions]="companySegmentOptions" (nzValueChange)="handleIndexChange($event)"></nz-segmented>
+                                </div>
+
+                                <div class="chart-data" style="height: 250px;">
+                                    <chart [type]="companyChartType" [data]="companyChartData" [options]="companyChartOptions"></chart>
+                                </div>
+                            </nz-card>
+                        </div>
+
+                        <div class="col-12">
+                            <nz-card nzTitle="Product Sale">
+                                <div class="chart-filter-form">
+                                    <nz-segmented [nzOptions]="productSegmentOptions" (nzValueChange)="handleIndexChange($event)"></nz-segmented>
+                                </div>
+
+                                <div class="chart-data" style="height: 250px;">
+                                    <chart [type]="type" [data]="data" [options]="options"></chart>
+                                </div>
+                            </nz-card>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

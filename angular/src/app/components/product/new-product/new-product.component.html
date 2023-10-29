@@ -1,0 +1,77 @@
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" [type]="spinnerType" [name]="spinnerName" [fullScreen] = "true"><p style="color: white" > Please Wait... </p></ngx-spinner>
+
+<div class="row">
+    <div class="col-6 mx-auto">
+        <nz-card 
+            [nzBordered]="true" 
+            nzTitle="Add New Product"
+        >
+            <form 
+                nz-form 
+                [formGroup]="form" 
+                nzLayout="vertical"  
+                (ngSubmit)="submitForm()"
+            >
+                <nz-form-item>
+                    <nz-form-label nzRequired nzFor="type">Type</nz-form-label>
+                    <nz-form-control nzErrorTip="Choose Type">
+                        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select Type" formControlName="type">
+                            <nz-option nzLabel="Soft Drink" nzValue="soft drink"></nz-option>
+                            <nz-option nzLabel="Water" nzValue="water"></nz-option>
+                            <nz-option nzLabel="Juice" nzValue="juice"></nz-option>
+                        </nz-select>
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-label nzRequired nzFor="company_name">Company Name</nz-form-label>
+                    <nz-form-control nzErrorTip="Choose Company Name">
+                        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select Company" formControlName="company_name">
+                            <ng-container *ngFor="let i of companies">
+                                <nz-option [nzLabel]="i.name" [nzValue]="i.name"></nz-option>
+                            </ng-container>
+                        </nz-select>
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-label nzRequired nzFor="product_name">Product Name</nz-form-label>
+                    <nz-form-control nzErrorTip="Enter Product Name">
+                        <input type="text" nz-input formControlName="product_name" placeholder="Product Name">
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-label nzRequired nzFor="variant">Variant</nz-form-label>
+                    <nz-form-control nzErrorTip="Choose Variant">
+                        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select Variant" formControlName="variant">
+                            <nz-option nzLabel="Glass" nzValue="glass"></nz-option>
+                            <nz-option nzLabel="Plastic" nzValue="plastic"></nz-option>
+                            <nz-option nzLabel="Tin Pack" nzValue="tinpack"></nz-option>
+                        </nz-select>
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-label nzRequired nzFor="size">Size</nz-form-label>
+                    <nz-form-control nzErrorTip="Enter Size">
+                        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select Size" formControlName="size">
+                            <nz-option nzLabel="300ml" nzValue="300ml"></nz-option>
+                            <nz-option nzLabel="330ml" nzValue="330ml"></nz-option>
+                            <nz-option nzLabel="500ml" nzValue="500ml"></nz-option>
+                            <nz-option nzLabel="1500ml" nzValue="1500ml"></nz-option>
+                        </nz-select>
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-control>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <button nz-button [nzType]="'primary'">Add</button>
+                        </div>
+                    </nz-form-control>
+                </nz-form-item>
+            </form>
+        </nz-card>
+    </div>
+</div>

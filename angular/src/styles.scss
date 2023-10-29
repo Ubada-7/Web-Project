@@ -1,0 +1,82 @@
+/* You can add global styles to this file, and also import other style files */
+@import "ag-grid-community/dist/styles/ag-grid.css";
+@import "ag-grid-community/dist/styles/ag-theme-alpine.css";
+
+@import url('./assets/lib/hljs/styles/atom-one-light.css');
+@import url('../node_modules/ng-zorro-antd/src/ng-zorro-antd.min.css');
+// @import url('../node_modules/@fortawesome/fontawesome-free/css/all.min.css');
+@import './assets/scss/app.scss';
+
+.flavor-row {
+    display: grid;
+    grid-gap: 15px;
+    margin: 0 0 15px;
+    &:last-child {
+        margin: 0;
+    }
+    .single-flavor {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        justify-content: space-between;
+    }
+}
+.form-item {
+    display: grid;
+    .form-label {
+        text-align: left;
+    }
+    .input-field {
+        width: 100%;
+    }
+} 
+.common-layout {
+    .ant-tabs-nav {
+        background-color: #fff;
+        padding-left: 25px;
+        padding-right: 25px;
+        margin-bottom: 25px;
+    }
+    .page-header {
+        background-color: #fff;
+        border-bottom: 1px solid #edf2f9;
+        padding: 25px;
+        margin: 0;
+    }
+    .page-header.has-tab {
+        border-bottom: 0;
+        margin-bottom: 0;
+        padding-bottom: 1px;
+    }
+    .page-container {
+        min-height: 100vh;
+        padding-left: 280px;
+        transition: all .2s ease;
+        @media only screen and (min-width: 992px) and (max-width: 1440px) {
+            padding-left: 230px;
+        }
+        .main-content {
+            padding: 70px 25px 25px;
+            min-height: calc(100vh - 65px);
+            .page-content {
+                // width: calc(100% - 180px);
+                // background-color: #fff;
+                padding: 25px;
+                // border: 1px solid #edf2f9;
+                height: calc(100vh - 185px);
+                h1 {
+                    margin: 0 0 40px;
+                }
+            }
+        }
+    }
+}
+
+/* AG GRID CUSTOM STYLING */
+ag-grid-angular {
+    width: 100%;
+    height: calc(100vh - 226px);
+    box-shadow: 0 0.5rem 1rem 0 #2c33491a;
+}
+.ag-theme-alpine .ag-header {
+    background-color: #fff;
+}
